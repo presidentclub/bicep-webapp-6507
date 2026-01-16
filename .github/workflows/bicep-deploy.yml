@@ -1,4 +1,4 @@
-name: Deploy Bicep to Azure
+name: Deploy Web App to Azure
 
 on:
   push:
@@ -18,9 +18,8 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Deploy Bicep template
-        run: |
-          az deployment group create \
-            --name bicep-cicd-6507 \
-            --resource-group IaCLabRG-6507 \
-            --template-file webapp.bicep
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'bicepWebAppDemo-6507'
+          package: .
