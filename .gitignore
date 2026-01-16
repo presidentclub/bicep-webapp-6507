@@ -1,0 +1,10 @@
+# Ignore Azure/Bicep local files
+*.jsonc
+*.log
+*.tmp
+
+# Ignore VS Code folder
+.vscode/
+
+# Ignore any secrets if added later
+*.env

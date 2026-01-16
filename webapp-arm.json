@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Web/serverfarms",
+      "apiVersion": "2022-03-01",
+      "name": "armAppServicePlan-6507",
+      "location": "westus2",
+      "sku": { "name": "F1", "capacity": 1 },
+      "properties": { "name": "armAppServicePlan-6507" }
+    },
+    {
+      "type": "Microsoft.Web/sites",
+      "apiVersion": "2022-03-01",
+      "name": "armWebAppDemo-6507",
+      "location": "westus2",
+      "properties": {
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', 'armAppServicePlan-6507')]"
+      }
+    }
+  ]
+}
